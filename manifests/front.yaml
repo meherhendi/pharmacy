@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: pharmacy
+spec:
+  template:
+    spec:
+      containers:
+        - image: dockerUsername/imageName
