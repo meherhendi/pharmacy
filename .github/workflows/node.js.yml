@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main, feature-search-pharmacy ]
+    branches: [feature-search-pharmacy ]
   pull_request:
-    branches: [ main ]
+    branches: []
 
 jobs:
   build:
@@ -30,5 +30,7 @@ jobs:
     - run: npm ci
       working-directory: pharmacy
     - run: npm run build --if-present
+      working-directory: pharmacy
     - run: npm test
+      working-directory: pharmacy
 
