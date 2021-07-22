@@ -15,7 +15,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: pharmacy/backend
+        working-directory: pharmacy/pharmacy/backend
 
     strategy:
       matrix:
@@ -24,6 +24,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
     - run: npm install    
     - run: npm ci
