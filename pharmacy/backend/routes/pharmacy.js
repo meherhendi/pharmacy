@@ -12,6 +12,12 @@ router.route("/").get((req, res) => {
 	})
 });
 
+router.route("/:id").get((req, res) => {
+	Pharmacy.findById(req.params.id).then(ph=>{
+		res.json(ph)
+	})
+});
+
 router.route("/").post((req, res) => {
 	const ph = new Pharmacy({
 		name: req.body.name,
